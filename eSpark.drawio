@@ -1,13 +1,13 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="OlUSSHkQQUN0YwNMewJn">
-    <mxGraphModel dx="3375" dy="940" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="3735" dy="1130" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="BhtPYsUqVhSGQNViGNbH-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Pipeline" vertex="1">
           <mxGeometry height="660" width="1250" x="160" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="BhtPYsUqVhSGQNViGNbH-25" parent="BhtPYsUqVhSGQNViGNbH-1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Each class is independent of others and each function takes in a DF and returns a DF some functions can take in extra parameters but those will be outlined in the documentation.&lt;/font&gt;&lt;/b&gt;" vertex="1">
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-25" parent="BhtPYsUqVhSGQNViGNbH-1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Each class is separate from others and each function takes in a DF and returns a DF some functions can take in extra parameters but those will be outlined in the documentation.&lt;/font&gt;&lt;/b&gt;" vertex="1">
           <mxGeometry height="80" width="1190" x="30" y="550" as="geometry" />
         </mxCell>
         <mxCell id="GhYnGmlNlV-dJumIWpkN-1" parent="BhtPYsUqVhSGQNViGNbH-1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="Rollups" vertex="1">
@@ -46,7 +46,7 @@
         <mxCell id="BhtPYsUqVhSGQNViGNbH-17" parent="BhtPYsUqVhSGQNViGNbH-12" style="whiteSpace=wrap;html=1;" value="Grid Availability" vertex="1">
           <mxGeometry height="20" width="160" x="20" y="120" as="geometry" />
         </mxCell>
-        <mxCell id="BhtPYsUqVhSGQNViGNbH-18" parent="BhtPYsUqVhSGQNViGNbH-12" style="whiteSpace=wrap;html=1;" value="Performance Ratio" vertex="1">
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-18" parent="BhtPYsUqVhSGQNViGNbH-12" style="whiteSpace=wrap;html=1;" value="Performance Ratio, etc." vertex="1">
           <mxGeometry height="20" width="160" x="20" y="150" as="geometry" />
         </mxCell>
         <mxCell id="BhtPYsUqVhSGQNViGNbH-19" parent="BhtPYsUqVhSGQNViGNbH-1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="Runner" vertex="1">
@@ -61,13 +61,13 @@
         <mxCell id="BhtPYsUqVhSGQNViGNbH-22" parent="BhtPYsUqVhSGQNViGNbH-1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Rollups&lt;/h1&gt;&lt;div&gt;Houses logic for rolling up values, dynamically creates dependency graph and stages the order of roll ups. Defines KPI specific roll up logic if needed.&lt;/div&gt;" vertex="1">
           <mxGeometry height="170" width="190" x="545" y="280" as="geometry" />
         </mxCell>
-        <mxCell id="BhtPYsUqVhSGQNViGNbH-23" parent="BhtPYsUqVhSGQNViGNbH-1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Runner&lt;/h1&gt;&lt;div&gt;Main starting point to orchestrate and run the pipeline. Which KPIs to use, what plants to calculate and for what values and for which period (monthly, daily, yearly, etc)&lt;/div&gt;" vertex="1">
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-23" parent="BhtPYsUqVhSGQNViGNbH-1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Runner&lt;/h1&gt;&lt;div&gt;Main starting point to orchestrate and run the pipeline. Which KPIs to use, what plants to calculate and for what values and for which period (monthly, daily, yearly, etc)&lt;br&gt;&lt;br&gt;Saves tables to be used by other processes&lt;/div&gt;" vertex="1">
           <mxGeometry height="170" width="190" x="780" y="280" as="geometry" />
         </mxCell>
         <mxCell id="BhtPYsUqVhSGQNViGNbH-72" parent="BhtPYsUqVhSGQNViGNbH-1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" value="Mapping Table" vertex="1">
           <mxGeometry height="150" width="180" x="1030" y="80" as="geometry" />
         </mxCell>
-        <mxCell id="BhtPYsUqVhSGQNViGNbH-73" parent="BhtPYsUqVhSGQNViGNbH-72" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Columns:&lt;/b&gt;&lt;div&gt;- Plant ID&lt;/div&gt;&lt;div&gt;- Calculation&lt;/div&gt;&lt;div&gt;- Signal ID&lt;/div&gt;&lt;div&gt;- Grouping&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-73" parent="BhtPYsUqVhSGQNViGNbH-72" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Columns:&lt;/b&gt;&lt;div&gt;- Plant ID&lt;/div&gt;&lt;div&gt;- Calculation&lt;/div&gt;&lt;div&gt;- Signal ID&lt;/div&gt;&lt;div&gt;- Source System&lt;/div&gt;&lt;div&gt;- Grouping&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
           <mxGeometry height="120" width="180" y="30" as="geometry" />
         </mxCell>
         <mxCell id="BhtPYsUqVhSGQNViGNbH-76" parent="BhtPYsUqVhSGQNViGNbH-1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Mapping Table&lt;/h1&gt;&lt;div&gt;For each plant and KPI it maps what signals to use when doing the KPI calculation&lt;/div&gt;" vertex="1">
