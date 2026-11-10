@@ -1,0 +1,272 @@
+{
+  "main": {
+    "id": "4660af03f0217df4",
+    "type": "split",
+    "children": [
+      {
+        "id": "fe664cb019b14834",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2722736452464be3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Daily PV TRUSA Vault/Formulas/Formula - Availability BU Gap (MWh).md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Formula - Availability BU Gap (MWh)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "8b9702b0836f2167",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "81e5c4b2373bf5b2",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "Daily PV TRUSA Vault/Formulas/Formula - Availability BU Gap (MWh).md",
+                "options": {
+                  "collapse-filter": false,
+                  "search": "-file:\"Site Name\" -file:\"Day\" -file:\"Date\" -file:\"Month\" -path:Templates",
+                  "localJumps": 2,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": true,
+                  "collapse-color-groups": false,
+                  "colorGroups": [
+                    {
+                      "query": "path:\"Daily PV TRUSA Vault/Formulas\"  ",
+                      "color": {
+                        "a": 1,
+                        "rgb": 14701138
+                      }
+                    }
+                  ],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 0.5087618855792584,
+                  "close": false
+                }
+              },
+              "icon": "lucide-git-fork",
+              "title": "Local graph"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "97d4a9faca3fb737",
+    "type": "split",
+    "children": [
+      {
+        "id": "27b2fd5e37f43215",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e24382701fd488cb",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "3e1f4ebb4fb8180c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#variable",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "273aae096ccc497e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 412.8333435058594
+  },
+  "right": {
+    "id": "73166da43fd7ac1d",
+    "type": "split",
+    "children": [
+      {
+        "id": "b58fcc43834465e9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4053dfb423beec12",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Daily PV TRUSA Vault/Formulas/Formula - Availability BU Gap (%).md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "a76d4448bb295def",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Daily PV TRUSA Vault/Formulas/Formula - Availability BU Gap (%).md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "532fea03ac1a38e7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "48502e8acb187a7b",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "00d7f27f1a76c69e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Daily PV TRUSA Vault/Formulas/Formula - Actual Plant Availability.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "2722736452464be3",
+  "lastOpenFiles": [
+    "Daily PV TRUSA Vault/Formulas/Formula - Actual Plant Availability.md",
+    "Daily PV TRUSA Vault/Formulas/Formula - 2026 HQ BU Prod (MWh).md",
+    "Daily PV TRUSA Vault/Formulas/Formula - POA vs GHI % gap (vs model).md",
+    "Daily PV TRUSA Vault/Formulas/Formula - Availability BU Gap (%).md",
+    "Daily PV TRUSA Vault/Variables/Actual Grid Availability.md",
+    "Daily PV TRUSA Vault/Formulas/Formula - Actual MWp.md",
+    "Daily PV TRUSA Vault/00 Index.md",
+    "Daily PV TRUSA Vault/Variables/Actual Irradiation GPOA (kWh-m2).md",
+    "Daily PV TRUSA Vault/Flow Diagrams.md",
+    "Daily PV TRUSA Vault/Variables/Availability BU Gap (MWh).md",
+    "Gap Bridge.md",
+    "Audit Notes.md",
+    "Daily PV TRUSA Vault/Dataview Queries.md",
+    "Daily PV TRUSA Vault/Gap Bridge.md",
+    "Daily PV TRUSA Vault/Variables/Site Name.md",
+    "Daily PV TRUSA Vault/Variables/2026 HQ BU Prod (MWh).md",
+    "Daily PV TRUSA Vault/Variables/2026 techBU Prod (MWh).md",
+    "Daily PV TRUSA Vault/Templates/Variable Template.md",
+    "Daily PV TRUSA Vault/Templates/Formula Template.md",
+    "Daily PV TRUSA Vault/Sources/Site Data Source Map.md",
+    "Daily PV TRUSA Vault/Sources/Monthly_techData.md",
+    "Daily PV TRUSA Vault/Formulas/Formula - HQ vs Tech BU Gap (MWh).md",
+    "Daily PV TRUSA Vault/Formulas/Formula - Grid Availability Loss (MWh).md",
+    "Daily PV TRUSA Vault/Formulas/Formula - Grid Availability BU Gap (%).md",
+    "Daily PV TRUSA Vault/Formulas/Formula - GHI Gap (%).md",
+    "Daily PV TRUSA Vault/Formulas/Formula - Expected Plant Availability.md"
+  ]
+}
