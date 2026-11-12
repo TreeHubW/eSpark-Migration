@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="OlUSSHkQQUN0YwNMewJn">
-    <mxGraphModel dx="5283" dy="1950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="3375" dy="940" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -13,7 +13,7 @@
         <mxCell id="GhYnGmlNlV-dJumIWpkN-1" parent="BhtPYsUqVhSGQNViGNbH-1" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=light-dark(#000000,#FFCCE6);" value="Rollups" vertex="1">
           <mxGeometry height="130" width="130" x="575" y="90" as="geometry" />
         </mxCell>
-        <mxCell id="BhtPYsUqVhSGQNViGNbH-2" parent="BhtPYsUqVhSGQNViGNbH-1" style="swimlane;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FFFF33);" value="Data Cleaning Steps" vertex="1">
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-2" parent="BhtPYsUqVhSGQNViGNbH-1" style="swimlane;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FFFF33);" value="Processing Steps" vertex="1">
           <mxGeometry height="190" width="200" x="293" y="60" as="geometry" />
         </mxCell>
         <mxCell id="BhtPYsUqVhSGQNViGNbH-4" parent="BhtPYsUqVhSGQNViGNbH-2" style="whiteSpace=wrap;html=1;" value="Interpolation" vertex="1">
@@ -52,7 +52,7 @@
         <mxCell id="BhtPYsUqVhSGQNViGNbH-19" parent="BhtPYsUqVhSGQNViGNbH-1" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=light-dark(#000000,#99FF99);" value="Runner" vertex="1">
           <mxGeometry height="130" width="130" x="810" y="90" as="geometry" />
         </mxCell>
-        <mxCell id="BhtPYsUqVhSGQNViGNbH-20" parent="BhtPYsUqVhSGQNViGNbH-1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Data cleaning&lt;/h1&gt;&lt;div&gt;Have modular functions that take in DF along with other step specific parameters and output another DF with an extra column indicating the result or the passed values.&lt;/div&gt;" vertex="1">
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-20" parent="BhtPYsUqVhSGQNViGNbH-1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Processing&lt;/h1&gt;&lt;div&gt;Have modular functions that take in DF along with other step specific parameters and output another DF with an extra column indicating the result or the passed values.&lt;/div&gt;" vertex="1">
           <mxGeometry height="170" width="190" x="298" y="280" as="geometry" />
         </mxCell>
         <mxCell id="BhtPYsUqVhSGQNViGNbH-21" parent="BhtPYsUqVhSGQNViGNbH-1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;KPI Calculations&lt;/h1&gt;&lt;div&gt;Each calculation is s class implementation that defines:&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- What the KPI depends on&lt;/div&gt;&lt;div&gt;- How to roll up the KPI&lt;/div&gt;&lt;div&gt;- Defines the steps for cleaning and implements calculating lowest grain value&lt;/div&gt;&lt;div&gt;- Holds other notes and specific implementations for that KPI&lt;/div&gt;" vertex="1">
