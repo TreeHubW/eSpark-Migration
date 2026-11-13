@@ -42,7 +42,7 @@ class POA_Irradiation(KPI):
             )
         ).over(timestamp_signal_window)
         df = df.withColumn(
-            "avg_value",
+            "poa_irradiation",
             F.when(
                 F.col("share_within_peer_median") > 0.5,
                 peer_filtered_average,

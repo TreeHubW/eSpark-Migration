@@ -21,10 +21,10 @@ def _accumulate_bad_flag(df, failed):
 
 def frozen(df, count=10):
     """
-    Flag readings after ``count`` consecutive identical values.
+    Flag all but the first reading in a run longer than ``count``.
 
     :param df: Spark DataFrame with equipment_id, signal_name, plant_id, timestamp, and value
-    :param count: Number of repeated readings before subsequent values are flagged
+    :param count: Minimum run length required to flag the run
     :return: Spark DataFrame with is_frozen and accumulated bad_flag columns
     """
     ordered_window = Window.partitionBy(
@@ -47,12 +47,19 @@ def frozen(df, count=10):
         "equipment_id", "signal_name", "plant_id", "_frozen_run_id"
     ).orderBy("timestamp")
     df = df.withColumn("_run_position", F.row_number().over(run_window))
+    run_length_window = run_window.rowsBetween(
+        Window.unboundedPreceding, Window.unboundedFollowing
+    )
+    df = df.withColumn("_run_length", F.count(F.lit(1)).over(run_length_window))
     df = df.withColumn(
         "is_frozen",
-        F.when(F.col("_run_position") > count, F.lit(1)).otherwise(F.lit(0)),
+        F.when(
+            (F.col("_run_length") > count) & (F.col("_run_position") > 1),
+            F.lit(1),
+        ).otherwise(F.lit(0)),
     )
 
-    df = df.drop("_is_new_run", "_frozen_run_id", "_run_position")
+    df = df.drop("_is_new_run", "_frozen_run_id", "_run_position", "_run_length")
     return _accumulate_bad_flag(df, F.col("is_frozen") == 1)
 
 
