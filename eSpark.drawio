@@ -1,0 +1,253 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="OlUSSHkQQUN0YwNMewJn">
+    <mxGraphModel dx="2963" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-1" parent="1" style="swimlane;whiteSpace=wrap;html=1;startSize=23;" value="Components" vertex="1">
+          <mxGeometry height="660" width="1250" x="160" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-25" parent="BhtPYsUqVhSGQNViGNbH-1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Classes never import each other and dependencies are resolved through tables by the Runner. Each function takes in a DF and returns a DF some functions can take in extra parameters but those will be outlined in the documentation.&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="1190" x="30" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="GhYnGmlNlV-dJumIWpkN-1" parent="BhtPYsUqVhSGQNViGNbH-1" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=light-dark(#000000,#FFCCE6);" value="Rollups" vertex="1">
+          <mxGeometry height="130" width="130" x="575" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-2" parent="BhtPYsUqVhSGQNViGNbH-1" style="swimlane;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FFFF33);" value="Processing Steps" vertex="1">
+          <mxGeometry height="190" width="200" x="293" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-4" parent="BhtPYsUqVhSGQNViGNbH-2" style="whiteSpace=wrap;html=1;" value="Interpolation" vertex="1">
+          <mxGeometry height="20" width="160" x="20" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-6" parent="BhtPYsUqVhSGQNViGNbH-2" style="whiteSpace=wrap;html=1;" value="Peer check (median)" vertex="1">
+          <mxGeometry height="20" width="160" x="20" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-10" parent="BhtPYsUqVhSGQNViGNbH-2" style="whiteSpace=wrap;html=1;" value="fallbacks" vertex="1">
+          <mxGeometry height="20" width="160" x="20" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-11" parent="BhtPYsUqVhSGQNViGNbH-2" style="whiteSpace=wrap;html=1;" value="etc." vertex="1">
+          <mxGeometry height="20" width="160" x="20" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-3" parent="BhtPYsUqVhSGQNViGNbH-2" style="whiteSpace=wrap;html=1;" value="Frozen values" vertex="1">
+          <mxGeometry height="20" width="160" x="20" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-12" parent="BhtPYsUqVhSGQNViGNbH-1" style="swimlane;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#66FFFF);" value="KPI Class" vertex="1">
+          <mxGeometry height="190" width="200" x="40" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-14" parent="BhtPYsUqVhSGQNViGNbH-12" style="whiteSpace=wrap;html=1;" value="POA" vertex="1">
+          <mxGeometry height="20" width="160" x="20" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-15" parent="BhtPYsUqVhSGQNViGNbH-12" style="whiteSpace=wrap;html=1;" value="Generation" vertex="1">
+          <mxGeometry height="20" width="160" x="20" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-16" parent="BhtPYsUqVhSGQNViGNbH-12" style="whiteSpace=wrap;html=1;" value="Expected Energy" vertex="1">
+          <mxGeometry height="20" width="160" x="20" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-17" parent="BhtPYsUqVhSGQNViGNbH-12" style="whiteSpace=wrap;html=1;" value="Grid Availability" vertex="1">
+          <mxGeometry height="20" width="160" x="20" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-18" parent="BhtPYsUqVhSGQNViGNbH-12" style="whiteSpace=wrap;html=1;" value="Performance Ratio, etc." vertex="1">
+          <mxGeometry height="20" width="160" x="20" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-19" parent="BhtPYsUqVhSGQNViGNbH-1" style="whiteSpace=wrap;html=1;aspect=fixed;strokeColor=light-dark(#000000,#99FF99);" value="Runner" vertex="1">
+          <mxGeometry height="130" width="130" x="810" y="90" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-20" parent="BhtPYsUqVhSGQNViGNbH-1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Processing&lt;/h1&gt;&lt;div&gt;Have modular functions that take in DF along with other step specific parameters and output another DF with an extra column indicating the result or the passed values.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="190" x="298" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-21" parent="BhtPYsUqVhSGQNViGNbH-1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;KPI Calculations&lt;/h1&gt;&lt;div&gt;Each calculation is s class implementation that defines:&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- What the KPI depends on&lt;/div&gt;&lt;div&gt;- How to roll up the KPI&lt;/div&gt;&lt;div&gt;- Defines the steps for cleaning and implements calculating lowest grain value&lt;/div&gt;&lt;div&gt;- Holds other notes and specific implementations for that KPI&lt;/div&gt;" vertex="1">
+          <mxGeometry height="190" width="200" x="40" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-22" parent="BhtPYsUqVhSGQNViGNbH-1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Rollups&lt;/h1&gt;&lt;div&gt;Houses logic for rolling up values, dynamically creates dependency graph and stages the order of roll ups. Calls logic from KPI class to do the rollups.Chooses the grouping keys, granularity, etc.&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="190" x="545" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-23" parent="BhtPYsUqVhSGQNViGNbH-1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Runner&lt;/h1&gt;&lt;div&gt;Main starting point to orchestrate and run the pipeline. Which KPIs to use, what plants to calculate and for what values and for which period (monthly, daily, yearly, etc)&lt;br&gt;&lt;br&gt;Saves tables to be used by other processes&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Gives run-status output&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="190" x="780" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-72" parent="BhtPYsUqVhSGQNViGNbH-1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#B014FF);" value="Mapping Table" vertex="1">
+          <mxGeometry height="150" width="180" x="1030" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-73" parent="BhtPYsUqVhSGQNViGNbH-72" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Columns:&lt;/b&gt;&lt;div&gt;- Plant ID&lt;/div&gt;&lt;div&gt;- Calculation&lt;/div&gt;&lt;div&gt;- Signal ID&lt;/div&gt;&lt;div&gt;- Source System&lt;/div&gt;&lt;div&gt;- Grouping&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="180" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-76" parent="BhtPYsUqVhSGQNViGNbH-1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Mapping Table&lt;/h1&gt;&lt;div&gt;For each plant and KPI it maps what signals to use when doing the KPI calculation&lt;/div&gt;" vertex="1">
+          <mxGeometry height="170" width="190" x="1025" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-27" edge="1" parent="1" style="curved=1;curveGeometry=1;endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0;entryY=0;entryDx=0;entryDy=0;" target="BhtPYsUqVhSGQNViGNbH-12" value="">
+          <mxGeometry height="50" relative="1" width="50" x="-0.709" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="340" />
+            </Array>
+            <mxPoint x="-110" y="220" as="sourcePoint" />
+            <mxPoint x="-30" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-28" edge="1" parent="1" style="curved=1;curveGeometry=1;endArrow=classic;html=1;rounded=0;defaultLabelBackgroundColor=page;entryX=0;entryY=0;entryDx=0;entryDy=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" x="-0.709" as="geometry">
+            <Array as="points">
+              <mxPoint x="20" y="340" />
+            </Array>
+            <mxPoint x="-110" y="220" as="sourcePoint" />
+            <mxPoint x="200" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-46" parent="1" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#66FFFF);" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;KPI Class Definition&lt;/font&gt;" vertex="1">
+          <mxGeometry height="250" width="260" x="-370" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="BhtPYsUqVhSGQNViGNbH-47" parent="BhtPYsUqVhSGQNViGNbH-46" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Variables:&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;Name&lt;div&gt;Dependencies (calculations KPIs needed)&lt;/div&gt;&lt;div&gt;Inputs (raw signals needed)&lt;/div&gt;&lt;div&gt;Daily Columns (what calculate must return it also needs to account for roll up needed values)&lt;/div&gt;&lt;div&gt;Other Variables (different per KPI)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Functions:&lt;/font&gt;&lt;/b&gt;&lt;/div&gt;&lt;div&gt;Roll up&lt;/div&gt;&lt;div&gt;Finalize&lt;/div&gt;&lt;div&gt;Calculate&lt;/div&gt;" vertex="1">
+          <mxGeometry height="220" width="260" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-37" edge="1" parent="1" source="fTGV8L2qgGAZomUniXZe-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.417;exitY=0;exitDx=0;exitDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;exitPerimeter=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" target="fTGV8L2qgGAZomUniXZe-38">
+          <mxGeometry relative="1" x="-0.15" as="geometry">
+            <mxPoint x="730" y="1310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-29" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#B014FF);" value="&lt;span style=&quot;font-size: 14px; text-align: left;&quot;&gt;Mapping Table&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="665" y="1460" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-34" edge="1" parent="1" source="fTGV8L2qgGAZomUniXZe-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="325" y="1270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-30" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Raw Data" vertex="1">
+          <mxGeometry height="320" width="250" x="-35" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-31" parent="fTGV8L2qgGAZomUniXZe-30" style="rounded=0;whiteSpace=wrap;html=1;" value="REN OPS Data product&lt;div&gt;(Bazefeild)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="225" x="10" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-32" parent="fTGV8L2qgGAZomUniXZe-30" style="rounded=0;whiteSpace=wrap;html=1;" value="US Performance Tables by Brian&lt;div&gt;(Power Factors)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="225" x="10" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-33" parent="fTGV8L2qgGAZomUniXZe-30" style="rounded=0;whiteSpace=wrap;html=1;" value="Manually uploaded data&lt;div&gt;(Sites not in APM or without API)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="225" x="10" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-36" edge="1" parent="1" source="fTGV8L2qgGAZomUniXZe-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="fTGV8L2qgGAZomUniXZe-38">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="675" y="1270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-35" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Input for calcualtions" vertex="1">
+          <mxGeometry height="320" width="225" x="325" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-16" parent="fTGV8L2qgGAZomUniXZe-35" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#B3B3B3);" value="power_plant" vertex="1">
+          <mxGeometry height="60" width="120" x="52.5" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-17" parent="fTGV8L2qgGAZomUniXZe-35" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#B3B3B3);" value="measurement_with_context" vertex="1">
+          <mxGeometry height="60" width="210" x="7.5" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-18" parent="fTGV8L2qgGAZomUniXZe-35" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#B3B3B3);" value="signals_with_context_all" vertex="1">
+          <mxGeometry height="60" width="165" x="30" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-40" edge="1" parent="1" source="fTGV8L2qgGAZomUniXZe-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" target="fTGV8L2qgGAZomUniXZe-43">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="915" y="1255" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-41" edge="1" parent="1" source="fTGV8L2qgGAZomUniXZe-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="fTGV8L2qgGAZomUniXZe-46">
+          <mxGeometry relative="1" x="-0.4262" as="geometry">
+            <mxPoint x="1155" y="1270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-42" edge="1" parent="1" source="fTGV8L2qgGAZomUniXZe-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="fTGV8L2qgGAZomUniXZe-43">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="915" y="1285" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-38" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#99FF99);" value="Runner" vertex="1">
+          <mxGeometry height="60" width="120" x="685" y="1240" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-39" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;position2=0.58;size=200;position=0.42;" value="Do some transformations, cleaning, combining, etc." vertex="1">
+          <mxGeometry height="280" width="165" x="167.5" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-56" edge="1" parent="1" source="fTGV8L2qgGAZomUniXZe-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="fTGV8L2qgGAZomUniXZe-55">
+          <mxGeometry relative="1" x="0.3844" as="geometry">
+            <mxPoint x="790" y="1380" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-43" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#66FFFF);" value="KPI Classes" vertex="1">
+          <mxGeometry height="60" width="120" x="915" y="1240" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-45" edge="1" parent="1" source="fTGV8L2qgGAZomUniXZe-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;" target="fTGV8L2qgGAZomUniXZe-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-44" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Input parameters, (range, roll up, KPI list, sites, etc)" vertex="1">
+          <mxGeometry height="20" width="410" x="565" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-58" edge="1" parent="1" source="fTGV8L2qgGAZomUniXZe-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;" target="fTGV8L2qgGAZomUniXZe-51">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1505" y="1270" />
+              <mxPoint x="1505" y="1315" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="zEj_6-qkAnRrasqUVBUt-4" edge="1" parent="1" source="fTGV8L2qgGAZomUniXZe-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;dashed=1;dashPattern=1 1;" target="fTGV8L2qgGAZomUniXZe-38">
+          <mxGeometry relative="1" x="0.0019" as="geometry">
+            <Array as="points">
+              <mxPoint x="1170" y="1290" />
+              <mxPoint x="1170" y="1330" />
+              <mxPoint x="775" y="1330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-46" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FF0080);" value="Calculations Table&lt;div&gt;Lowest level of granularity&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="180" x="1226" y="1230" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-48" edge="1" parent="1" source="fTGV8L2qgGAZomUniXZe-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;" target="fTGV8L2qgGAZomUniXZe-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-47" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FFFF33);" value="Reusable Transoframtions" vertex="1">
+          <mxGeometry height="60" width="120" x="995" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-50" edge="1" parent="1" source="fTGV8L2qgGAZomUniXZe-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;" target="fTGV8L2qgGAZomUniXZe-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-49" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Input parameters, (depends on the step)" vertex="1">
+          <mxGeometry height="20" width="410" x="1010" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-57" edge="1" parent="1" source="fTGV8L2qgGAZomUniXZe-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;" target="fTGV8L2qgGAZomUniXZe-51">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1505" y="1390" />
+              <mxPoint x="1505" y="1315" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-55" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=light-dark(#000000,#FFCCE6);" value="Rollups" vertex="1">
+          <mxGeometry height="60" width="120" x="1256" y="1360" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-51" parent="1" style="swimlane;whiteSpace=wrap;html=1;" value="Final Tables" vertex="1">
+          <mxGeometry height="225" width="200" x="1685" y="1205" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-52" parent="fTGV8L2qgGAZomUniXZe-51" style="rounded=0;whiteSpace=wrap;html=1;" value="Daily" vertex="1">
+          <mxGeometry height="40" width="150" x="25" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-53" parent="fTGV8L2qgGAZomUniXZe-51" style="rounded=0;whiteSpace=wrap;html=1;" value="Weeky" vertex="1">
+          <mxGeometry height="40" width="150" x="25" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-54" parent="fTGV8L2qgGAZomUniXZe-51" style="rounded=0;whiteSpace=wrap;html=1;" value="Monthly, etc." vertex="1">
+          <mxGeometry height="40" width="150" x="25" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="fTGV8L2qgGAZomUniXZe-60" parent="1" style="shape=mindmapBang;whiteSpace=wrap;html=1;perimeter=ellipsePerimeter;rotation=88;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;fillColor=none;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="300" width="370" x="1595" y="1175" as="geometry" />
+        </mxCell>
+        <mxCell id="zEj_6-qkAnRrasqUVBUt-1" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Want to add a new column calculation?&lt;/h1&gt;&lt;p&gt;Create a new KPI class that implements the methods needed for the calculation&lt;/p&gt;&lt;p&gt;Update the runner to include the new calculation&lt;/p&gt;&lt;p&gt;Add the needed signals to the Mapping Table&lt;/p&gt;" vertex="1">
+          <mxGeometry height="170" width="350" x="-560" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="zEj_6-qkAnRrasqUVBUt-2" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Want to change the roll up?&lt;/h1&gt;&lt;p&gt;Update KPI roll up&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="105" width="350" x="-560" y="1215" as="geometry" />
+        </mxCell>
+        <mxCell id="zEj_6-qkAnRrasqUVBUt-3" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Want to change the cleaning definition of a step?&lt;/h1&gt;&lt;p&gt;Update its function or create a whole new step by creating a function&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="105" width="350" x="-560" y="1355" as="geometry" />
+        </mxCell>
+        <mxCell id="zEj_6-qkAnRrasqUVBUt-6" edge="1" parent="1" source="zEj_6-qkAnRrasqUVBUt-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;" target="fTGV8L2qgGAZomUniXZe-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="zEj_6-qkAnRrasqUVBUt-5" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" value="Input parameters, (give the context and needed data for calc.)" vertex="1">
+          <mxGeometry height="20" width="420" x="880" y="1520" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
