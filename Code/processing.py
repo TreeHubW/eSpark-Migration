@@ -23,13 +23,11 @@ def frozen(df, count=10):
     """
     Flag all but the first reading in a run longer than ``count``.
 
-    :param df: Spark DataFrame with equipment_id, signal_name, plant_id, timestamp, and value
+    :param df: Spark DataFrame with plant_id, key, timestamp, and value
     :param count: Minimum run length required to flag the run
     :return: Spark DataFrame with is_frozen and accumulated bad_flag columns
     """
-    ordered_window = Window.partitionBy(
-        "equipment_id", "signal_name", "plant_id"
-    ).orderBy("timestamp")
+    ordered_window = Window.partitionBy("plant_id", "key").orderBy("timestamp")
     running_window = ordered_window.rowsBetween(
         Window.unboundedPreceding, Window.currentRow
     )
@@ -44,7 +42,7 @@ def frozen(df, count=10):
     df = df.withColumn("_frozen_run_id", F.sum("_is_new_run").over(running_window))
 
     run_window = Window.partitionBy(
-        "equipment_id", "signal_name", "plant_id", "_frozen_run_id"
+        "plant_id", "key", "_frozen_run_id"
     ).orderBy("timestamp")
     df = df.withColumn("_run_position", F.row_number().over(run_window))
     run_length_window = run_window.rowsBetween(
@@ -76,8 +74,8 @@ def bounds(df, min_value=0, max_value=1500):
 
 def peer_median(df, range):
     """
-    Compare unflagged readings with the median of unflagged readings from the
-    same plant and signal in the next ``range`` minutes.
+    Compare unflagged readings with the median from other mapped keys at the
+    same plant in the next ``range`` minutes.
     """
     df = _ensure_bad_flag(df)
     unflagged = df.filter(F.col("bad_flag") == 0)
@@ -86,7 +84,7 @@ def peer_median(df, range):
     peer_window = base.join(
         other,
         (F.col("base.plant_id") == F.col("other.plant_id"))
-        & (F.col("base.signal_name") == F.col("other.signal_name"))
+        & (F.col("base.key") != F.col("other.key"))
         & (F.col("other.timestamp") >= F.col("base.timestamp"))
         & (
             F.col("other.timestamp")
@@ -97,7 +95,7 @@ def peer_median(df, range):
     peers = peer_window.groupBy(F.col("base.id").alias("id")).agg(
         F.expr("median(other.value)").alias("peer_median_next_10min"),
         F.count(F.col("other.value")).alias("peer_reading_count"),
-        F.countDistinct(F.col("other.equipment_id")).alias("peer_equipment_count"),
+        F.countDistinct(F.col("other.key")).alias("peer_measurement_count"),
     )
 
     source = df.alias("source")
@@ -110,7 +108,7 @@ def peer_median(df, range):
         "source.*",
         F.col("peer.peer_median_next_10min"),
         F.col("peer.peer_reading_count"),
-        F.col("peer.peer_equipment_count"),
+        F.col("peer.peer_measurement_count"),
     )
     df = df.withColumn(
         "within_peer_median_10pct",
