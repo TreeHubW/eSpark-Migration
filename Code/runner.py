@@ -1,6 +1,13 @@
+import logging
 from datetime import datetime, timedelta, timezone
+
 from pyspark.sql import functions as F
+
+import processing as pro
 from KPIs.POA_Irradiation import POA_Irradiation
+
+
+logger = logging.getLogger(__name__)
 
 RAW_TABLE = "espark_consumer_group.us_performance.measurement_with_context"
 MAPPING_TABLE = "Mapping_Table"
@@ -35,6 +42,13 @@ class Runner:
         if start >= end:
             raise ValueError("start_time must be earlier than end_time")
 
+        logger.info(
+            "Starting KPI run for [%s, %s) using raw table %s and mapping table %s",
+            start,
+            end,
+            self.raw_table,
+            self.mapping_table,
+        )
         mapping = self.spark.table(self.mapping_table)
         required_mapping_columns = {
             "plant_id",
@@ -82,10 +96,14 @@ class Runner:
             grouped_mappings.setdefault((plant_id, calculation), []).append(
                 (measurement_column, measurement_id)
             )
+        logger.info(
+            "Loaded %d distinct mappings across %d plant/calculation groups",
+            len(mapping_rows),
+            len(grouped_mappings),
+        )
 
         raw = self.spark.table(self.raw_table)
         required_raw_columns = {
-            "id",
             "plant_id",
             "timestamp",
             "value",
@@ -99,6 +117,11 @@ class Runner:
 
         padded_start = start - timedelta(minutes=self.read_padding_minutes)
         padded_end = end + timedelta(minutes=self.read_padding_minutes)
+        logger.info(
+            "Reading raw measurements from %s through %s (exclusive)",
+            padded_start,
+            padded_end,
+        )
         raw = raw.filter(
             (F.col("timestamp") >= F.lit(padded_start))
             & (F.col("timestamp") < F.lit(padded_end))
@@ -106,6 +129,12 @@ class Runner:
 
         outputs = []
         for (plant_id, calculation), measurements in grouped_mappings.items():
+            logger.info(
+                "Calculating %s for plant %s using %d mapped measurements",
+                calculation,
+                plant_id,
+                len(measurements),
+            )
             matches = None
             mapped_keys = []
             for measurement_column, measurement_id in measurements:
@@ -127,27 +156,39 @@ class Runner:
                 raw.filter((F.col("plant_id") == plant_id) & matches)
                 .withColumn("key", mapped_key)
             )
+            mapped_raw = pro.check_and_deduplicate(mapped_raw)
             kpi = self.kpi_registry[calculation]()
             calculated = kpi.calculate(mapped_raw)
             value_column = kpi.rollup_columns[0]
-            if value_column not in calculated.columns:
+            missing = {
+                "plant_id",
+                "timestamp",
+                value_column,
+                "n_signals_used",
+                "source_flag",
+            }.difference(calculated.columns)
+            if missing:
                 raise ValueError(
-                    f"{calculation}.calculate() did not produce '{value_column}'"
+                    f"{calculation}.calculate() did not produce: "
+                    + ", ".join(sorted(missing))
                 )
 
+            # calculate() already returns one row per (plant_id, timestamp).
+            # The runner only trims the padded read back down to the window.
             result = (
                 calculated.filter(
                     (F.col("timestamp") >= F.lit(start))
                     & (F.col("timestamp") < F.lit(end))
                 )
-                .groupBy("plant_id", "key", "timestamp")
-                .agg(
-                    F.avg(F.col(value_column)).cast("double").alias("value"),
-                    F.max("bad_flag").cast("int").alias("bad_flag"),
-                )
+                .withColumn("value", F.col(value_column).cast("double"))
                 .withColumn("calculation", F.lit(calculation))
                 .select(
-                    "plant_id", "timestamp", "calculation", "value", "bad_flag", "key"
+                    "plant_id",
+                    "timestamp",
+                    "calculation",
+                    "value",
+                    "n_signals_used",
+                    "source_flag",
                 )
             )
             outputs.append(result)
@@ -156,9 +197,26 @@ class Runner:
         for result in outputs[1:]:
             output = output.unionByName(result)
 
+        self._write(output, start, end)
+        logger.info(
+            "Completed KPI run for [%s, %s); results written to %s",
+            start,
+            end,
+            self.output_table,
+        )
+        return output
+
+    def _write(self, output, start, end):
+        """Replace only the rows in [start, end); everything else is left alone."""
         replace_condition = (
             f"`timestamp` >= {self._sql_timestamp(start)} "
             f"AND `timestamp` < {self._sql_timestamp(end)}"
+        )
+        logger.info(
+            "Replacing rows in %s for [%s, %s)",
+            self.output_table,
+            start,
+            end,
         )
         (
             output.write.format("delta")
@@ -166,7 +224,6 @@ class Runner:
             .option("replaceWhere", replace_condition)
             .saveAsTable(self.output_table)
         )
-        return output
 
     @staticmethod
     def _parse_timestamp(value):
@@ -182,4 +239,4 @@ class Runner:
 
     @staticmethod
     def _sql_timestamp(value):
-        return "TIMESTAMP '" + value.strftime("%Y-%m-%d %H:%M:%S.%f") + "'"
+        return "TIMESTAMP '" + value.strftime("%Y-%m-%d %H:%M:%S.%f") + "'"
