@@ -9,9 +9,11 @@ from KPIs.POA_Irradiation import POA_Irradiation
 
 logger = logging.getLogger(__name__)
 
-RAW_TABLE = "espark_consumer_group.us_performance.measurement_with_context"
-MAPPING_TABLE = "Mapping_Table"
-OUTPUT_TABLE = "POA_Irradiation"
+# Unity Catalog location (catalog.schema) for all project tables.
+SCHEMA = "espark_consumer_group.us_performance"
+RAW_TABLE = f"{SCHEMA}.measurement_with_context"
+MAPPING_TABLE = f"{SCHEMA}.Mapping_Table"
+OUTPUT_TABLE = f"{SCHEMA}.POA_Irradiation"
 
 
 class Runner:
@@ -28,6 +30,10 @@ class Runner:
         read_padding_minutes=60,
     ):
         self.spark = spark
+        # All window boundaries are UTC. Pin the session time zone so timestamp
+        # literals and the replaceWhere condition are not shifted by the
+        # cluster / workspace default time zone.
+        self.spark.conf.set("spark.sql.session.timeZone", "UTC")
         self.raw_table = raw_table
         self.mapping_table = mapping_table
         self.output_table = output_table
@@ -123,8 +129,8 @@ class Runner:
             padded_end,
         )
         raw = raw.filter(
-            (F.col("timestamp") >= F.lit(padded_start))
-            & (F.col("timestamp") < F.lit(padded_end))
+            (F.col("timestamp") >= F.expr(self._sql_timestamp(padded_start)))
+            & (F.col("timestamp") < F.expr(self._sql_timestamp(padded_end)))
         )
 
         outputs = []
@@ -177,8 +183,8 @@ class Runner:
             # The runner only trims the padded read back down to the window.
             result = (
                 calculated.filter(
-                    (F.col("timestamp") >= F.lit(start))
-                    & (F.col("timestamp") < F.lit(end))
+                    (F.col("timestamp") >= F.expr(self._sql_timestamp(start)))
+                    & (F.col("timestamp") < F.expr(self._sql_timestamp(end)))
                 )
                 .withColumn("value", F.col(value_column).cast("double"))
                 .withColumn("calculation", F.lit(calculation))
@@ -239,4 +245,4 @@ class Runner:
 
     @staticmethod
     def _sql_timestamp(value):
-        return "TIMESTAMP '" + value.strftime("%Y-%m-%d %H:%M:%S.%f") + "'"
+        return "TIMESTAMP '" + value.strftime("%Y-%m-%d %H:%M:%S.%f") + "'"
