@@ -3,6 +3,12 @@ import sys
 import time
 from datetime import datetime
 
+import importlib
+from pyspark.sql import functions as F
+import processing
+import KPIs.POA_Irradiation as poa_module
+import runner as runner_module
+
 CODE_PATH = "/Workspace/Users/fady.seha@totalenergies.com/eSpark-Migration/Code"
 MAPPING_TABLE = "espark_consumer_group.us_performance.Mapping_Table"
 OUTPUT_TABLE = "espark_consumer_group.us_performance.POA_Irradiation"
@@ -27,14 +33,7 @@ logging.basicConfig(
 )
 
 log("START main.py")
-log(f"Adding code path: {CODE_PATH}")
 sys.path.append(CODE_PATH)
-
-import importlib
-from pyspark.sql import functions as F
-import processing
-import KPIs.POA_Irradiation as poa_module
-import runner as runner_module
 
 # Reload so edits to processing.py / KPIs / runner.py are picked up without
 # restarting Python. Order matters: dependencies first, runner last.
@@ -43,7 +42,6 @@ importlib.reload(poa_module)
 importlib.reload(runner_module)
 Runner = runner_module.Runner
 
-log("Imported Runner")
 log(f"Mapping table : {MAPPING_TABLE}")
 log(f"Output table  : {OUTPUT_TABLE}")
 log(f"Window        : {START_TS} -> {END_TS}")
@@ -53,11 +51,11 @@ runner = Runner(
     mapping_table=MAPPING_TABLE,
     output_table=OUTPUT_TABLE,
 )
-log("Runner initialised, starting run()")
+log("Runner initialised, starting run_all()")
 
 _t_run = time.time()
-runner.run(START_TS, END_TS)
-log(f"run() finished in {time.time() - _t_run:.1f}s")
+runner.run_all(START_TS, END_TS)
+log(f"run_all() finished in {time.time() - _t_run:.1f}s")
 
 # Read back what was written. Using the DataFrame returned by run() would
 # recompute the whole pipeline again for every action below.

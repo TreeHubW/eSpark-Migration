@@ -41,15 +41,31 @@ class Runner:
             raise ValueError("read_padding_minutes cannot be negative")
         self.read_padding_minutes = read_padding_minutes
 
-    def run(self, start_time, end_time):
-        """Recompute and replace results in [start_time, end_time), using UTC."""
+    def run(self, start_time, end_time, calculation):
+        """Recompute one calculation within the UTC window."""
+        if not isinstance(calculation, str):
+            raise TypeError("calculation must be a string")
+        if calculation not in self.kpi_registry:
+            raise ValueError(f"Unsupported calculation: {calculation}")
+        return self._run(start_time, end_time, calculation)
+
+    def run_all(self, start_time, end_time):
+        """Recompute all configured calculations within the UTC window."""
+        return self._run(start_time, end_time, None)
+
+    def _run(self, start_time, end_time, calculation):
+        """Recompute one calculation, or all when calculation is None."""
         start = self._parse_timestamp(start_time)
         end = self._parse_timestamp(end_time)
         if start >= end:
             raise ValueError("start_time must be earlier than end_time")
+        calculation_label = (
+            calculation if calculation is not None else "all calculations"
+        )
 
         logger.info(
-            "Starting KPI run for [%s, %s) using raw table %s and mapping table %s",
+            "Starting KPI run for %s in [%s, %s) using raw table %s and mapping table %s",
+            calculation_label,
             start,
             end,
             self.raw_table,
@@ -69,41 +85,44 @@ class Runner:
                 + ", ".join(sorted(missing_mapping_columns))
             )
 
-        mapping_rows = (
-            mapping.select(
-                "plant_id",
-                "calculation",
-                "specific_measurement_id",
-                "specific_measurement_name",
-            )
-            .distinct()
-            .collect()
+        mapping = mapping.select(
+            "plant_id",
+            "calculation",
+            "specific_measurement_id",
+            "specific_measurement_name",
         )
+        if calculation is not None:
+            mapping = mapping.filter(F.col("calculation") == calculation)
+        mapping_rows = mapping.collect()
         if not mapping_rows:
-            raise ValueError("Mapping table contains no configured measurements")
+            if calculation is None:
+                raise ValueError("Mapping table contains no configured measurements")
+            raise ValueError(
+                f"Mapping table contains no configured measurements for {calculation}"
+            )
 
         grouped_mappings = {}
         for row in mapping_rows:
             plant_id = row["plant_id"]
-            calculation = row["calculation"]
+            mapping_calculation = row["calculation"]
             measurement_id = row["specific_measurement_id"]
             measurement_column = row["specific_measurement_name"]
             if (
                 not plant_id
-                or not calculation
+                or not mapping_calculation
                 or not measurement_id
                 or not measurement_column
             ):
                 raise ValueError(f"Invalid mapping row: {row}")
-            if calculation not in self.kpi_registry:
+            if mapping_calculation not in self.kpi_registry:
                 raise ValueError(
-                    f"Unsupported calculation in mapping table: {calculation}"
+                    f"Unsupported calculation in mapping table: {mapping_calculation}"
                 )
-            grouped_mappings.setdefault((plant_id, calculation), []).append(
+            grouped_mappings.setdefault((plant_id, mapping_calculation), []).append(
                 (measurement_column, measurement_id)
             )
         logger.info(
-            "Loaded %d distinct mappings across %d plant/calculation groups",
+            "Loaded %d mappings across %d plant/calculation groups",
             len(mapping_rows),
             len(grouped_mappings),
         )
@@ -203,23 +222,31 @@ class Runner:
         for result in outputs[1:]:
             output = output.unionByName(result)
 
-        self._write(output, start, end)
+        self._write(output, start, end, calculation)
         logger.info(
-            "Completed KPI run for [%s, %s); results written to %s",
+            "Completed %s KPI run for [%s, %s); results written to %s",
+            calculation_label,
             start,
             end,
             self.output_table,
         )
         return output
 
-    def _write(self, output, start, end):
-        """Replace only the rows in [start, end); everything else is left alone."""
+    def _write(self, output, start, end, calculation):
+        """Replace rows for this run in [start, end); leave all others alone."""
         replace_condition = (
             f"`timestamp` >= {self._sql_timestamp(start)} "
             f"AND `timestamp` < {self._sql_timestamp(end)}"
         )
+        calculation_label = (
+            calculation if calculation is not None else "all calculations"
+        )
+        if calculation is not None:
+            escaped_calculation = calculation.replace("'", "''")
+            replace_condition += f" AND `calculation` = '{escaped_calculation}'"
         logger.info(
-            "Replacing rows in %s for [%s, %s)",
+            "Replacing %s rows in %s for [%s, %s)",
+            calculation_label,
             self.output_table,
             start,
             end,
