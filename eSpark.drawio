@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="OlUSSHkQQUN0YwNMewJn">
-    <mxGraphModel dx="2963" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+    <mxGraphModel dx="3970" dy="1130" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -228,9 +228,6 @@
         </mxCell>
         <mxCell id="fTGV8L2qgGAZomUniXZe-54" parent="fTGV8L2qgGAZomUniXZe-51" style="rounded=0;whiteSpace=wrap;html=1;" value="Monthly, etc." vertex="1">
           <mxGeometry height="40" width="150" x="25" y="160" as="geometry" />
-        </mxCell>
-        <mxCell id="fTGV8L2qgGAZomUniXZe-60" parent="1" style="shape=mindmapBang;whiteSpace=wrap;html=1;perimeter=ellipsePerimeter;rotation=88;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;fillColor=none;strokeColor=#000000;" value="" vertex="1">
-          <mxGeometry height="300" width="370" x="1595" y="1175" as="geometry" />
         </mxCell>
         <mxCell id="zEj_6-qkAnRrasqUVBUt-1" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Want to add a new column calculation?&lt;/h1&gt;&lt;p&gt;Create a new KPI class that implements the methods needed for the calculation&lt;/p&gt;&lt;p&gt;Update the runner to include the new calculation&lt;/p&gt;&lt;p&gt;Add the needed signals to the Mapping Table&lt;/p&gt;" vertex="1">
           <mxGeometry height="170" width="350" x="-560" y="980" as="geometry" />
