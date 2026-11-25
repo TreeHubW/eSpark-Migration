@@ -54,7 +54,7 @@ runner = Runner(
 log("Runner initialised, starting run_all()")
 
 _t_run = time.time()
-runner.run_all(START_TS, END_TS)
+runner.run(START_TS, END_TS)
 log(f"run_all() finished in {time.time() - _t_run:.1f}s")
 
 # Read back what was written. Using the DataFrame returned by run() would
